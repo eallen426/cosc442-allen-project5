@@ -59,12 +59,12 @@ public class WMethod{
   private static Set [] Oled=new HashSet[maxEdges]; // Holds sets of edges corresponding to a labels.
   
   
-  private static String[] outputArray = new String[maxOutputs]; //Output alphabet
-  private static String[] inputArray = new String[maxInputs]; // Input alphabet
-  private static int countOutputs = 0; //Size of the output alphabet
-  private static int countInputs = 0; // Size of the input alphabet
+  public static String[] outputArray = new String[maxOutputs]; //Output alphabet
+  public static String[] inputArray = new String[maxInputs]; // Input alphabet
+  public static int countOutputs = 0; //Size of the output alphabet
+  public static int countInputs = 0; // Size of the input alphabet
   
-  private static Scanner fileSource; // Name of a Scanner object.
+  public static Scanner fileSource; // Name of a Scanner object.
   
   
   /**
@@ -282,7 +282,7 @@ public class WMethod{
     }
   }// End printFSM()
   
-  private static String getFilename(){
+  public static String getFilename(){
     System.out.print("Enter filename: "); // Prompt for file name containing FSM.
     String name=fileSource.nextLine();
     return (name);
@@ -345,7 +345,7 @@ public class WMethod{
           repeatedEntries++;
       }
     }
-     return testCases;
+    return testCases;
    }// End generateTests.
    
    public static String addSpaces(String str)
@@ -395,11 +395,13 @@ public class WMethod{
      pTableManager w = new pTableManager(FSM, numberOfStates, realInput);
      Vector <String> tests=generateTests(transitionCover, w); // Generate tests.
      Utilities.printAllTestCases(tests); // Print tests.
+     Utilities.generateTestCases2(FSM, tests);
      
-     for(int i=0; i<tests.size();i++)
+     /*for(int i=0; i<tests.size();i++)
      {
+    	 System.out.println(i);
     	 Utilities.runFSM(FSM, 1, addSpaces(tests.get(i)), " ");
-     }
+     }*/
      // TODO: 	Write the necessary code to iterate through all test cases and run them against
      // 		the FSM using the Utilities.runFSM() method. 
      //
